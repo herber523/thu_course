@@ -34,7 +34,7 @@ Or install it yourself as:
 取得系所開課明細
 ```ruby
 	ThuCourse.department_id(105,1,'100')
-	# 參數為 學年 學期
+	# 參數為 學年 學期 系所編號
 ```
 
 
