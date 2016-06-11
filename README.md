@@ -1,12 +1,11 @@
 # ThuCourse
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/thu_course`. To experiment with that code, run `bin/console` for an interactive prompt.
+快速獲取東海大學開課明細
+資料來源為 course.thu.edu.tw 這個網站
 
-TODO: Delete this and the text above, and describe your gem
+## 安裝
 
-## Installation
-
-Add this line to your application's Gemfile:
+加入這行到您的 Gemfile:
 
 ```ruby
 gem 'thu_course'
@@ -20,9 +19,24 @@ Or install it yourself as:
 
     $ gem install thu_course
 
-## Usage
+## 使用
 
-TODO: Write usage instructions here
+取得所有開課明細
+```ruby
+	ThuCourse.all(105,1)
+	# 參數為 學年 學期
+```
+取得系所編號
+```ruby
+	ThuCourse.department_id(105,1)
+	# 參數為 學年 學期
+```
+取得系所開課明細
+```ruby
+	ThuCourse.department_id(105,1,'100')
+	# 參數為 學年 學期
+```
+
 
 ## Development
 
