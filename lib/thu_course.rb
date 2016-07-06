@@ -10,7 +10,7 @@ module ThuCourse
 	a_tags = doc.css('.b a') # => array of node
 	a_tags.each do |a_tag|
 	name = a_tag.text.gsub(/\s+/,' ').strip
-	 dp_uri= uri.merge(a_tag['href'])
+	 dp_uri= uri.merge(a_tag['href'].gsub('view-dept','view-ge'))
 	 dp_doc = Nokogiri::HTML(open(dp_uri))
 	 tr_tag = dp_doc.css('#no-more-tables tr')
 
@@ -49,7 +49,7 @@ module ThuCourse
 		return hash
 	end
 	def self.department(year,semester,id)
-		 uri = "http://course.thu.edu.tw/view-dept/#{year}/#{semester}/#{id}"
+		 uri = "http://course.thu.edu.tw/view-ge/#{year}/#{semester}/#{id}"
 	         dp_doc = Nokogiri::HTML(open(uri))
        		 tr_tag = dp_doc.css('#no-more-tables tr')
 		 hash = []

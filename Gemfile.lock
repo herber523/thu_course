@@ -1,0 +1,27 @@
+PATH
+  remote: .
+  specs:
+    thu_course (0.1.8)
+      nokogiri (~> 1.6.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    mini_portile2 (2.1.0)
+    nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
+    pkg-config (1.1.7)
+    rake (10.5.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.11)
+  nokogiri
+  rake (~> 10.0)
+  thu_course!
+
+BUNDLED WITH
+   1.11.2
