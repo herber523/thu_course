@@ -64,6 +64,7 @@ module ThuCourse
       name    = td_tag[1].text.strip
       credit  = td_tag[2].text.strip
       date    = td_tag[3].text.strip
+      date_text = date
       date = date_change(date)
       teacher = []
       teacher_data = td_tag[4].css('a')
@@ -79,6 +80,7 @@ module ThuCourse
       hash << { id: course_id,
                 name: name,
                 credit: credit,
+                date_text: date_text,
                 date: date,
                 teacher: teacher,
                 num: num,
