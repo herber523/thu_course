@@ -76,13 +76,14 @@ module ThuCourse
       end
       num     = td_tag[5].text.strip.gsub(/\s+/, '')
       note    = td_tag[6].text.strip
-
+      department = note.split('/').first.strip
       hash << { id: course_id,
                 name: name,
                 credit: credit,
                 date_text: date_text,
                 date: date,
                 teacher: teacher,
+                department: department,
                 num: num,
                 note: note }
     end
