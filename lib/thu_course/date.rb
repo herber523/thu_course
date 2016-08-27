@@ -35,7 +35,7 @@ def date_change(datas)
       hash << { day: day_num, local: local, time: time.reverse }
       time = []
     elsif data != ''
-      if data.size >= 3
+      if data.size >= 3 || data.include?('館')
         local = data
       else
         time << data
