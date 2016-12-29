@@ -14,26 +14,7 @@ module ThuCourse
       dp_uri = uri.merge(a_tag['href'].gsub('view-dept', 'view-ge'))
       dp_doc = Nokogiri::HTML(open(dp_uri))
       tr_tag = dp_doc.css('#no-more-tables tr')
-
-      tr_tag.each do |tr|
-        td_tag = tr.css('td')
-        next unless td_tag[0]
-        course_id = td_tag[0].css('a').text.strip
-        name	= td_tag[1].text.strip
-        credit	= td_tag[2].text.strip
-        date	= td_tag[3].text.strip
-        teacher = td_tag[4].text.strip
-        num	= td_tag[5].text.strip.gsub(/\s+/, '')
-        note	= td_tag[6].text.strip
-
-        hash << { id: course_id,
-                  name: name,
-                  credit: credit,
-                  date: date,
-                  teacher: teacher,
-                  num: num,
-                  note: note }
-      end
+      hash += parse(tr_tag)
     end
     hash
   end
@@ -51,11 +32,16 @@ module ThuCourse
     end
     hash
   end
-
+   
   def self.department(year, semester, id)
     uri = "http://course.thu.edu.tw/view-ge/#{year}/#{semester}/#{id}"
     dp_doc = Nokogiri::HTML(open(uri))
     tr_tag = dp_doc.css('#no-more-tables tr')
+
+    parse(tr_tag)
+  end
+
+  def self.parse(tr_tag)
     hash = []
     tr_tag.each do |tr|
       td_tag = tr.css('td')
